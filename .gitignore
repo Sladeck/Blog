@@ -1,0 +1,8 @@
+*.idea
+*.log
+Thumbs.db
+.Ds_Store
+*.sublime-*
+.*.swp
+.swp
+config/*
