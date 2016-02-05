@@ -1,19 +1,11 @@
 <?php
-include('connexion.php');
+require_once('connexion.php');
 	session_start();
 //Si on as cliqué sur Logout
 if(isset($_POST['logout'])){
 	session_destroy();
-	header("Location: Login.php");
-	exit;
 }
-//Si on est pas passé par la page de LOGIN
-if(!isset($_SESSION["logged"]) || $_SESSION['logged'] == false){
-	header("Location: Login.php");
-	exit;
-}else{
 
-}
 ?>
 
 <!DOCTYPE html>
@@ -24,12 +16,18 @@ if(!isset($_SESSION["logged"]) || $_SESSION['logged'] == false){
 	<link rel="stylesheet" href="index.css">
 </head>
 <body>
-<div class="formu">
-	<form method="POST">
-		<br><input type="number" name="guess"><br><br>
-		<input type="submit"><br><br>
-		<input type="submit" name="logout" value="Se déconnecter">
-	</form>
-</div>
+  <div class="menu">
+
+  </div>
+  <div class="corps">
+
+  </div>
+  <div class="sidebar sideRight">
+		<div class="log">
+      <?php
+      include('Login.php');
+      ?>
+    </div>
+  </div>
 </body>
 </html>

@@ -18,7 +18,7 @@ catch(Exception $e)
 }
 
 if($database==true){
-
+	echo("Connecté");
 }else{
 	echo('HE NON !');
 }
