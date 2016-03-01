@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="iso-8859-1">
   <title>Destinations</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
@@ -11,12 +11,15 @@
     <li class="articles" id="article-<?php echo $titre['id_article']?>">
     <?php echo $titre["titre_article"];?>
     <a class="articles-delete" href="#" data-articleid="<?php echo $titre['id_article']?>">X</a>
+    <div class="contents_articles"><?php echo $titre["contenu_article"];?></div><br>
     </li>
+
   <?php endforeach;?>
   </ul>
 
   <form class="articles-add">
-    Nom : <input type="name" name="titre_article"><br>
+    Nom : <input type="text" name="titre_article"><br><br>
+    Contenu : <textarea name="content_article"></textarea><br><br>
     <input type="submit" value="Add">
   </form>
 
@@ -45,8 +48,8 @@ $(document).on('submit','.articles-add', function(e){
     }else{
       var newli = $('<li class="articles" id="article-'+data.id_article+'">'
                     +data.titre_article
-                    +' <a class="article-delete" href="#" data-articleid="'
-                    +data.id_article+'">X</a></li>');
+                    +' <a class="articles-delete" href="#" data-articleid="'
+                    +data.id_article+'">X</a><div class="contents_articles">'+ data.content_article+'</div><br></li>');
       $('.articles_list').append(newli);
       $('.article-add input[name=titre_article]').val("");
     }

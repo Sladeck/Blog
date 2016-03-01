@@ -7,14 +7,18 @@ class ArticlesController extends AbstractController{
       return json_encode(["error"=>"titre_article missing"]);
 
     $titre_article = strip_tags($_POST['titre_article']);
+    $content_article = strip_tags($_POST['content_article']);
+    $content_article = htmlentities($content_article);
+    $content_article = trim($content_article);
     $titre_article = htmlentities($titre_article);
     $titre_article = trim($titre_article);
 
-    $id_article = ArticlesModel::create($this->pdo, $titre_article);
+    $id_article = ArticlesModel::create($this->pdo, $titre_article, $content_article);
 
     return json_encode(["message"=>"Créé !",
                         "id_article"=>$id_article,
-                        "titre_article" => $titre_article
+                        "titre_article" => $titre_article,
+                        "content_article" => $content_article
                         ]);
 
   }
