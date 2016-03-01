@@ -34,9 +34,11 @@ class ArticlesController extends AbstractController{
     return json_encode(["message"=>"Trouver",
                         "recherche"=>$research]);
   }
+
   public function updateAction(){
     return json_encode(["error"=>"not implemented"]);
   }
+
   public function deleteAction(){
     if(!isset($_POST['id_article']))
       return json_encode(["error"=>"id_article missing"]);

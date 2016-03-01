@@ -6,6 +6,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
+
+  <nav>
+      <ul>
+        <li><a href="" id="create">Créer un article</a></li>
+        <li></li>
+        <li></li>
+      </ul>
+  </nav>
   <ul class="articles_list">
   <?php foreach($articles as $titre):?>
     <li class="articles" id="article-<?php echo $titre['id_article']?>">
@@ -16,7 +24,7 @@
 
   <?php endforeach;?>
   </ul>
-
+  <!-- A changer en mode affichage -->
   <form class="articles-add">
     Nom : <input type="text" name="titre_article"><br><br>
     Contenu : <textarea name="content_article"></textarea><br><br>
@@ -38,25 +46,13 @@ $(document).on('click','.articles-delete', function(e){
   },'json')
 
   e.preventDefault();
-})
-
-$(document).on('submit','.articles-add', function(e){
-
-  $.post("/articles/create",$(this).serialize(),function(data){
-    if(typeof(data.error) != "undefined"){
-      alert(data.error);
-    }else{
-      var newli = $('<li class="articles" id="article-'+data.id_article+'">'
-                    +data.titre_article
-                    +' <a class="articles-delete" href="#" data-articleid="'
-                    +data.id_article+'">X</a><div class="contents_articles">'+ data.content_article+'</div><br></li>');
-      $('.articles_list').append(newli);
-      $('.article-add input[name=titre_article]').val("");
-    }
-  },'json');
-
-  return false;
 });
+
+$(document).on('click', '#create', function(e){
+  document.location.href=('createArticle.php');
+});
+
+
 </script>
 
 </body>
