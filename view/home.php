@@ -1,3 +1,23 @@
+<?php
+
+if(isset($user)){
+  foreach($user as $infos):
+    $_SESSION['pseudo'] = $infos['pseudo_user'];
+    $_SESSION['droit'] = $infos['droit'];
+    $_SESSION['ID'] = $infos['id_user'];
+
+  endforeach;
+}else{
+  ?>
+  <form class="connexion">
+    Nom : <input type="text" name="pseudo_user"><br><br>
+    Mot de Passe : <input type="password" name="password_user"><br><br>
+    <input type="submit" value="Login">
+  </form>
+  <?php
+}
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,15 +42,6 @@
     <div class="contents_articles"><?php echo $titre["contenu_article"];?></div><br>
     </li>
 
-  <?php endforeach;?>
-  </ul>
-  <!-- A changer en mode affichage -->
-  <form class="articles-add">
-    Nom : <input type="text" name="titre_article"><br><br>
-    Contenu : <textarea name="content_article"></textarea><br><br>
-    <input type="submit" value="Add">
-  </form>
-
 <script>
 $(document).on('click','.articles-delete', function(e){
 
@@ -51,6 +62,16 @@ $(document).on('click','.articles-delete', function(e){
 $(document).on('click', '#create', function(e){
   document.location.href=('createArticle.php');
 });
+
+
+$(document).on('submit','.connexion', function(e){
+
+  $.post("/user/connexion",$(this).serialize(),function(data){
+    if(typeof(data.error) != "undefined"){
+      alert(data.error);
+    }
+
+  },'json');
 
 
 </script>
