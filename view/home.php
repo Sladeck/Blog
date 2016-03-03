@@ -29,7 +29,7 @@ if(isset($user)){
 
   <nav>
       <ul>
-        <li><a href="" id="create">Créer un article</a></li>
+        <li><a href="/redirection/create" id="create">Créer un article</a></li>
         <li></li>
         <li></li>
       </ul>
@@ -40,8 +40,18 @@ if(isset($user)){
     <?php echo $titre["titre_article"];?>
     <a class="articles-delete" href="#" data-articleid="<?php echo $titre['id_article']?>">X</a>
     <div class="contents_articles"><?php echo $titre["contenu_article"];?></div><br>
-    </li>
+    Commentaires : <br><br>
+    <?php
+    foreach ($commentaires as $contain):
+      if($contain['id_article'] == $titre['id_article']){
+      echo $contain['pseudo_user']; ?>
+      <div class="contenu_comm">
+        <?php echo $contain['contenu_comm']; ?>
+      </div><br>
+      <?php } endforeach; ?>
+    </li><br><br>
 
+<?php  endforeach; ?>
 <script>
 $(document).on('click','.articles-delete', function(e){
 
@@ -51,16 +61,12 @@ $(document).on('click','.articles-delete', function(e){
     if(typeof(data.error) != "undefined"){
       alert(data.error);
     }else{
-      var deleted_articles = data.id_article
+      var deleted_articles = data.id_article;
       $('#article-'+deleted_articles).remove();
     }
-  },'json')
+  },'json');
 
   e.preventDefault();
-});
-
-$(document).on('click', '#create', function(e){
-  document.location.href=('createArticle.php');
 });
 
 
@@ -72,7 +78,7 @@ $(document).on('submit','.connexion', function(e){
     }
 
   },'json');
-
+});
 
 </script>
 
