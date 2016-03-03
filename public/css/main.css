@@ -1,0 +1,20 @@
+html{
+  background-color: grey;
+}
+
+body{
+  width: 85%;
+  margin: auto;
+  margin-top: 1%;
+  background-color: #8c1d04;
+}
+
+.leftSide{
+  width: 70%;
+  display: inline-block;
+}
+
+.rightSide{
+  width: 28%;
+  display: inline-block;
+}
