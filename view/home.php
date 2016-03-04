@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="iso-8859-1">
-  <title>Destinations</title>
+  <title>Acceuil</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <link rel="stylesheet" href="/css/main.css" media="screen" charset="utf-8">
 </head>
@@ -10,8 +10,8 @@
 
   <nav class="menu">
       <ul>
-        <li><a href="/redirection/create" id="create">Créer un article</a></li>
-        <li></li>
+        <li><a href="/articles/redirection" id="create">Créer un article</a></li>
+        <li><a href="/user/account" id="profil">Mon profil</a></li>
         <li></li>
       </ul>
   </nav>
@@ -78,12 +78,14 @@ $(document).on('click','.articles-delete', function(e){
 
 $(document).on('submit','.connexion', function(e){
 
-  $.post("/user/connexion",$(this).serialize(),function(data){
+  $.post("/user/connection",$(this).serialize(),function(data){
     if(typeof(data.error) != "undefined"){
       alert(data.error);
     }
 
   },'json');
+    
+    return false;
 });
 
 </script>

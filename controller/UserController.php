@@ -1,6 +1,10 @@
 <?php
 
 class UserController extends AbstractController{
+    
+    public function accountAction(){
+        include('../view/Account.php');
+    }
 
   public function connectionAction($pdo, $name_user, $password_user){
     if(!isset($_POST['name_user']) && !isset($_POST['password_user']))
@@ -11,10 +15,10 @@ class UserController extends AbstractController{
     $password_user = trim($password_user);
     sha1($password_user);
     $name_user = strip_tags($_POST['name_user']);
-    $name_user = htmlentities($titre_article);
-    $name_user = trim($titre_article);
+    $name_user = htmlentities($name_user);
+    $name_user = trim($name_user);
 
-    $id_article = UserModel::connexion($this->pdo, $name_user, $password_user);
+    $user = UserModel::connexion($this->pdo, $name_user, $password_user);
 
     return json_encode(["message"=>"Connecté !",
                         "id_user"=>$id_user,
@@ -23,16 +27,16 @@ class UserController extends AbstractController{
                         ]);
   }
 
-  public function showAction($pdo, $_SESSION){
-    if(!isset($_SESSION))
-      return json_encode(["error"=>"ID missing"]);
+ // public function showAction($pdo, $_SESSION){
+    //if(!isset($_SESSION))
+      //return json_encode(["error"=>"ID missing"]);
 
-    $id_user = strip_tags($_SESSION['ID']);
+    //$id_user = strip_tags($_SESSION['ID']);
 
-    $account = UserModel::getList($this->pdo, $id_user);
+    //$account = UserModel::getList($this->pdo, $id_user);
 
-    return json_encode(["message"=>"Connecté !"]);
-  }
+    //return json_encode(["message"=>"Connecté !"]);
+  //}
 
   public function editAction(){
     if(!isset($_POST['name']) && !isset($_POST['firstname']) && !isset($_POST['pseudo']) && !isset($_POST['mdp']) && !isset($_POST['email']) && !isset($_SESSION['id_user']))

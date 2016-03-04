@@ -1,6 +1,10 @@
 <?php
 
 class ArticlesController extends AbstractController{
+    
+    public function redirectionAction(){
+        include('../view/createArticle.php');
+    }
 
   public function createAction(){
     if(!isset($_POST['titre_article']))

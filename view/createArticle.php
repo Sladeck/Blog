@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="iso-8859-1">
-  <title>Destinations</title>
+  <title>bonjour</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
@@ -12,6 +12,8 @@
     Contenu : <textarea name="content_article"></textarea><br><br>
     <input type="submit" value="Add">
   </form>
+    
+    <div class="sucess"></div>
 
 <script>
 
@@ -22,8 +24,8 @@ $(document).on('submit','.articles-add', function(e){
       alert(data.error);
     }else{
       var newli = $('Votre article à bien été créé, vous allez être redirigé vers l\'accueil.');
-      $('.articles_list').append(newli);
-      window.setTimeout("location=('home.php');",4000);
+      $('.sucess').append(newli);
+      //window.setTimeout("location=('home.php');",4000);
     }
   },'json');
 
@@ -33,3 +35,5 @@ $(document).on('submit','.articles-add', function(e){
 
 </body>
 </html>
+
+
