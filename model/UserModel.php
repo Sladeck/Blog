@@ -6,7 +6,7 @@ class UserModel{
     $q = $pdo->prepare("SELECT * FROM users WHERE pseudo_user = :name_user AND mdp_user = :password_user");
     $q->bindParam('name_user', $name_user);
     $q->bindParam('password_user', $password_user);
-    $reussi = $q->execute();
+    $q->execute();
     $user = [];
     foreach ($q as $row) {
       $user[] = $row;

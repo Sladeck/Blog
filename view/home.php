@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="iso-8859-1">
+  <meta charset="utf-8">
   <title>Acceuil</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <link rel="stylesheet" href="/css/main.css" media="screen" charset="utf-8">
 </head>
 <body>
 
-  <nav class="menu">
-      <ul>
-        <li><a href="/articles/redirection" id="create">Créer un article</a></li>
-        <li><a href="/user/account" id="profil">Mon profil</a></li>
-        <li></li>
-      </ul>
-  </nav>
-  <div class="leftSide">
+
+      <?php include('menu.html');?>
+
+  <div class="leftSide Sides">
 
     <ul class="articles_list">
     <?php foreach($articles as $titre):?>
@@ -36,7 +32,7 @@
 
       <?php  endforeach; ?>
   </div>
-  <div class="rightSide">
+  <div class="rightSide Sides">
     <?php
 
     if(isset($user)){
@@ -84,7 +80,7 @@ $(document).on('submit','.connexion', function(e){
     }
 
   },'json');
-    
+
     return false;
 });
 
