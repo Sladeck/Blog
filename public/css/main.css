@@ -89,8 +89,12 @@ body{
   width: 100%;
   margin: auto;
   background-color: #8c1d04;
+<<<<<<< Updated upstream
 	height: 100%;
 	color: white;
+=======
+    
+>>>>>>> Stashed changes
 }
 
 @font-face {
