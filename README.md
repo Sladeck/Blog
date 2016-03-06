@@ -17,4 +17,6 @@ Installation :
 
 -> Pour accéder à votre site, rentrer le nom de votre Vhost dans l'url suivi d'un /
 
+-> Pour les identifiants de connexion lire le fichier .txt
+
 ->Bienvenue sur Sup'Rock !
