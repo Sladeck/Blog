@@ -10,7 +10,7 @@
     
     <?php include('menu.html');?>
     
-<div class="profil">        
+       
 <form class="my-form">
 <table class="tab">
     <tr>
@@ -38,7 +38,7 @@
     <input type="submit" value="Modifier">
     
 </form>
-</div>
+
 
 </body>
 </html>
