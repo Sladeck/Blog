@@ -9,5 +9,4 @@ class IndexController extends AbstractController{
     return;
   }
 
-
 }

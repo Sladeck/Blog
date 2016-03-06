@@ -11,6 +11,16 @@ class UserModel{
     return $user;
   }
 
+  public static function create($pdo, $name, $prenom, $pseudo, $password, $mail){
+    $q = $pdo->prepare("INSERT INTO `users`(`nom_user`, `prenom_user`, `pseudo_user`, `mdp_user`, `mail_user`) VALUES ( :name, :prenom, :pseudo, :password, :mail)");
+    $q->bindParam('name', $name);
+    $q->bindParam('prenom', $prenom);
+    $q->bindParam('pseudo', $pseudo);
+    $q->bindParam('password', $password);
+    $q->bindParam('mail', $mail);
+    $reussi = $q->execute();
+    return $reussi;
+  }
 
   public static function getList($pdo, $id_user){
     $res = $pdo->prepare("SELECT * FROM users WHERE id_user = :id_user");

@@ -28,7 +28,7 @@
       <?php
       foreach ($commentaires as $contain):
         if($contain['id_article'] == $titre['id_article']){
-        echo $contain['pseudo_user']; ?>
+        echo "Par <span id='pseudo'>".$contain['pseudo_user']."</span> | Le ".$contain['date_comm']; ?>
         <div class="contenu_comm">
           <?php echo $contain['contenu_comm']; ?>
         </div><br>
@@ -52,7 +52,7 @@
               <label for="pseudo_user">Pseudo :</label>
             </td>
             <td>
-              <input type="text" name="name_user" placeholder="Jimmy" id="pseudo_user">
+              <input type="text" name="name_user" placeholder="Jimmy" id="pseudo_user" required>
             </td>
           </tr>
           <tr>
@@ -60,12 +60,13 @@
               <label for="password_user">Mot de Passe :</label>
             </td>
             <td>
-              <input type="password" name="password_user" placeholder="Hendrix" id="password_user">
+              <input type="password" name="password_user" placeholder="Hendrix" id="password_user" required>
             </td>
           </tr>
         </table>
         <input type="submit" value="Login">
       </form>
+      <span id="inscription">Pas de compte ? <a href="/user/inscription">Inscrivez-vous !</a></span>
       <?php
     }
      ?>

@@ -10,7 +10,7 @@ class ArticlesController extends AbstractController{
     if(!isset($_POST['titre_article']))
       return json_encode(["error"=>"titre_article missing"]);
 
-    $id_user = $_SESSION['id_user'];
+    //$id_user = $_SESSION['id_user'];
     $id_user = 1; //Ligne à supprimer quand la connexion fonctionnera !
 
     $titre_article = strip_tags($_POST['titre_article']);
@@ -24,12 +24,12 @@ class ArticlesController extends AbstractController{
     $id_article = ArticlesModel::create($this->pdo, $titre_article, $content_article, $id_user);
 
     return json_encode(["message"=>"Créé !",
-                        "id_article"=>$id_article,
                         "titre_article" => $titre_article,
                         "content_article" => $content_article
                         ]);
 
   }
+  
   public function showAction(){
     return json_encode(["error"=>"not implemented"]);
 

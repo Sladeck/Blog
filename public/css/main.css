@@ -79,7 +79,6 @@ table {
 	.fadeOutLeft {
 	  animation: fadeOutLeft 1s ease alternate; }
 
-
 /***************************************************************************/
 
 html{
@@ -99,6 +98,11 @@ body{
 src: url('/font/hardcafe.ttf');
 }
 
+@font-face {
+  font-family: 'Lato Regular';
+src: url('/font/Lato-Regular.ttf');
+}
+
 .container{
 	padding-bottom: 1%;
 	margin-left: 4%;
@@ -110,6 +114,9 @@ src: url('/font/hardcafe.ttf');
   display: inline-block;
   background-color: #1f1f1c;
 	border-radius: 50px 0px;
+	animation: fadeInUp 1.3s ease alternate;
+	font-family: 'Lato Regular';
+	line-height: 1.2;
 }
 
 .leftSide > *{
@@ -128,6 +135,8 @@ src: url('/font/hardcafe.ttf');
 	height: 250px;
 	margin-left: 1%;
 	border-radius: 0px 50px;
+	animation: fadeInUp 1.3s ease alternate;
+	font-family: 'Lato Regular';
 }
 
 .rightSide > *{
@@ -164,10 +173,22 @@ src: url('/font/hardcafe.ttf');
 	background-color: #f9ae39;
 	line-height: 0.5;
 	outline: none;
+	min-width: 90px;
+}
+
+#inscription{
+	margin: auto;
+	display: block;
+	margin-top: 1%;
+	font-size: 0.8em;
+}
+
+#inscription a{
+	color: #b11d04;
 }
 
 .articles_list{
-	animation: fadeInUp 1.3s ease alternate;
+
 }
 
 .articles{
@@ -203,10 +224,17 @@ src: url('/font/hardcafe.ttf');
 }
 
 .contenu_comm{
-	background-color: rgba(140, 29, 4, 0.2);;
+	background-color: rgba(140, 29, 4, 0.2);
 	width: 40%;
 	margin: auto;
 	padding: 15px;
 	text-align: justify;
 	line-height: 1;
+}
+
+#pseudo{
+	font-size: 1em;
+	font-family: 'Hard Rock Cafe';
+	letter-spacing: 3px;
+	color: rgba(140, 29, 4, 1);
 }

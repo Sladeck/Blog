@@ -6,6 +6,10 @@ class UserController extends AbstractController{
         include('../view/Account.php');
     }
 
+    public function inscriptionAction(){
+      include('../view/Inscription.php');
+    }
+
   public function connectionAction(){
     if(!isset($_POST['name_user']) && !isset($_POST['password_user']))
       return json_encode(["error"=>"name_user or password_user missing"]);
@@ -26,6 +30,43 @@ class UserController extends AbstractController{
                         "droit_user" => $droit_user,
                         'id_user'=> $id_user
                         ]);
+  }
+
+  public function createAction(){
+    if(!isset($_POST['name']) && !isset($_POST['prenom']) && !isset($_POST['pseudo'])  && !isset($_POST['password'])  && !isset($_POST['mail']))
+      return json_encode(["error"=>"titre_article missing"]);
+
+    $name = strip_tags($_POST['name']);
+    $name = htmlentities($name);
+    $name = trim($name);
+
+    $prenom = strip_tags($_POST['prenom']);
+    $prenom = htmlentities($prenom);
+    $prenom = trim($prenom);
+
+    $pseudo = strip_tags($_POST['pseudo']);
+    $pseudo = htmlentities($pseudo);
+    $pseudo = trim($pseudo);
+
+    $password = strip_tags($_POST['password']);
+    $password = htmlentities($password);
+    $password = trim($password);
+    $password = sha1($password);
+
+    $mail = strip_tags($_POST['email']);
+    $mail = htmlentities($mail);
+    $mail = trim($mail);
+
+    $user = UserModel::create($this->pdo, $name, $prenom, $pseudo, $password, $mail);
+
+    return json_encode(["message"=>"Créé !",
+                        "name" => $name,
+                        "prenom" => $prenom,
+                        "pseudo" => $pseudo,
+                        "password" => $password,
+                        "mail" => $mail
+                        ]);
+
   }
 
  // public function showAction($pdo, $_SESSION){

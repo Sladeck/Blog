@@ -9,7 +9,7 @@
 
 
 <form class="my-form">
-    <input type="text" name="name" placeholder="Nom"><br><br>
+    <input type="text" name="name" placeholder="Nom" ><br><br>
     <input type="text" name="firstname" placeholder="Prénom"><br><br>
     <input type="text" name="pseudo" placeholder="Pseudo"><br><br>
     <input type="text" name="mdp" placeholder="Mot De Passe"><br><br>

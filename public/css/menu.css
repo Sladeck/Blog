@@ -1,6 +1,28 @@
+/********************************** FADE IN DOWN *****************************/
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-50px); }
+  60% {
+    opacity: 1; }
+  100% {
+    -webkit-transform: translateY(0); } }
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px); }
+  60% {
+    opacity: 1; }
+  100% {
+    transform: translateY(0); } }
+.fadeInDown {
+  animation: fadeInDown 1s ease alternate; }
+
+/*****************************************************************************/
+
 @font-face {
   font-family: 'Hard Rock Cafe';
-src: url('/font/hardcafe.ttf');
+  src: url('/font/hardcafe.ttf');
 }
 
 #menu-top{
@@ -9,6 +31,8 @@ src: url('/font/hardcafe.ttf');
   position: fixed;
   max-width: border-box;
   z-index: 10;
+  animation: fadeInDown 1.5s ease alternate;
+  height: 61px;
 }
 
 #titre h1{
@@ -43,6 +67,12 @@ src: url('/font/hardcafe.ttf');
   color: white;
   font-size: 1.3em;
   background-color: black;
+  font-family: 'Hard Rock Cafe';
+  letter-spacing: 3px;
+}
+
+.logoLogin{
+  max-height: 31px;
 }
 
 #menu-top ul li:hover{

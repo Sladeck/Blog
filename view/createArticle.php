@@ -10,7 +10,7 @@
   <form class="articles-add">
     <label for="titre_article">Nom : </label><input type="text" name="titre_article" id="titre_article"><br><br>
     <label for="content_article">Contenu : </label><textarea name="content_article" id="content_article"></textarea><br><br>
-    <input type="submit" value="Add">
+    <input type="submit" value="Add" name="valid">
   </form>
 
     <div class="success"></div>
@@ -25,12 +25,17 @@ $(document).on('submit','.articles-add', function(e){
     }else{
       var newli = 'Votre article à bien été créé, vous allez être redirigé vers l\'accueil.';
       $('.success').append(newli);
-      //window.setTimeout("location=('home.php');",4000);
+
+      function back(){
+        history.back();
+      }
+      window.setTimeout(back,3000);
     }
   },'json');
 
   return false;
 });
+
 </script>
 
 </body>
