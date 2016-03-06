@@ -42,12 +42,8 @@
     </table>
     <?php  endforeach; ?>
     <input type="submit" value="Modifier">
-
+<div class="success"></div>
 </form>
-
-<div class="success">
-
-</div>
 
 <script type="text/javascript">
 $(document).on('submit','.my-form', function(e){

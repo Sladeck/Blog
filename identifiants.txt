@@ -1,0 +1,41 @@
+Il n'y a malheureusement pas d'identifiants de connexion car la connexion ne fonctionne pas.
+
+Pour changer directement vos identifiants, veuillez vous rendre dans la base de données.
+
+(Attention, tout les mots de passes doivent être hasher, ici, ils sont en sha1).
+
+
+
+SCHEMA BASE DE DONNEES :
+
+
+BDD -> SUPROCK
+
+TABLE -> USER :
+-ID_USER	-> INT
+-NOM_USER	->VARCHAR
+-PRENOM_USER	->VARCHAR
+-PSEUDO_USER	->VARCHAR
+-MDP_USER	->VARCHAR
+-MAIL_USER	->VARCHAR
+-DROIT_USER	->INT
+
+
+TABLE -> ARTICLES :
+-ID_ARTICLE		->INT
+-TITRE_ARTICLE		->VARCHAR
+-DATE_ARTICLE		->DATE
+-CONTENU_ARTICLE	->TEXT
+-ID_USER		->INT
+
+
+TABLE -> COMMENTAIRES :
+-ID_COMM	->INT
+-ID_ARTICLE	->INT
+-ID_USER	->INT
+-CONTENU_COMM	->TEXT
+-DATE_COMM	->DATE
+
+
+
+ATTENTION -> TOUT LES ID ONT ETE LIEES !

@@ -14,8 +14,8 @@
     <label for="titre_article">Nom : </label><input type="text" name="titre_article" id="titre_article"><br><br>
     <label for="content_article">Contenu : </label><textarea name="content_article" id="content_article"></textarea><br><br>
     <input type="submit" value="Ajouter" name="valid">
+    <div class="success"></div>
   </form>
-      <div class="success"></div>
 
 <script>
 
