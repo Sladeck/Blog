@@ -12,29 +12,30 @@
     
        
 <form class="my-form">
-<table class="tab">
-    <tr>
-       <td><label for="name">Nom: </label></td>
-       <td><input type="text" name="name" id="name" value=""></td>
-    </tr>
+    <?php foreach($account as $profil):?>
+    <table class="tab">
+        <tr>
+            <td><label for="name">Nom: </label></td>
+            <td><input type="text" name="name" id="name" value="<?php echo $profil['nom_user']?>"></td>
+        </tr>
     
-    <tr>
-       <td><label for="firstname">Prénom: </label></td>
-       <td><input type="text" name="firstname" id="firstname" value=""></td>
-    </tr>
+        <tr>
+            <td><label for="firstname">Prénom: </label></td>
+            <td><input type="text" name="firstname" id="firstname" value="<?php echo $profil['prenom_user']?>"></td>
+        </tr>
     
-    <tr>
-       <td><label for="pseudo">Pseudo: </label></td>
-       <td><input type="text" name="pseudo" id="pseudo" value=""></td>
-    </tr>
+        <tr>
+            <td><label for="pseudo">Pseudo: </label></td>
+            <td><input type="text" name="pseudo" id="pseudo" value="<?php echo $profil['pseudo_user']?>"></td>
+        </tr>
     
-    <tr>
-       <td><label for="email">Email: </label></td>
-       <td><input type="text" name="email" id="email" value=""></td>
-    </tr>
-    
-</table>
-    
+        <tr>
+            <td><label for="email">Email: </label></td>
+            <td><input type="text" name="email" id="email" value="<?php echo $profil['mail_user']?>"></td>
+        </tr>
+        
+    </table>
+    <?php  endforeach; ?>
     <input type="submit" value="Modifier">
     
 </form>
