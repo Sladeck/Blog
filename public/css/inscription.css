@@ -41,73 +41,67 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 @font-face {
   font-family: 'Hard Rock Cafe';
-src: url('/font/hardcafe.ttf');
+  src: url('/font/hardcafe.ttf');
 }
 
 body{
-    background-color: #8c1d04;
+  background-color: #8c1d04;
 }
 
-.my-form{
-    position: relative;
-    margin: auto;
-    top: 230px;
-    padding: 30px;
-    width: 40%;
-    background-color: #1f1f1C;
-    text-align: center;
-    color: white;
-    border-radius: 50px 0px;
+.black{
+  background-color: #1f1f1c;
+  position: absolute;
+  display: block;
+  margin-left: 8em;
+  margin-top: 8%;
+  padding: 5%;
+  border-radius: 50px 0px;
+  color: white;
+  font-size: 1.5em;
 }
 
-.tab{
-    margin:auto;
-    padding-top: 10px;
-
-}
-
-.tab td{
-
-    padding-bottom: 8%;
-    text-align: left;
-}
-
-.tab label{
-    margin-right: 20px;
-    font-size: 1.1em;
+form{
 
 }
 
-.my-form input{
-    width: 120%;
-    max-width: border-box;
-    height: 3em;
-    border-radius: 10px;
-    box-shadow:  2px 2px 5px gray inset;
-    outline: none;
-    font-size: 1em;
-
+form table{
+  width: 20em;
 }
 
-.my-form input[type=submit]{
-    width: 22%;
-    margin-top: 10px;
-    margin-left: 75px;
-    background-color:#777;
-    border-radius:20px;
-    box-shadow:
-        0px 2px 2px 0px rgba(0, 0, 0, 0.5),
-        0px 2px 2px 0px rgba(255, 255, 255, 0.5) inset;
+form input{
+  width: 100%;
+  height: 3em;
+  margin-bottom: 2em;
+  border-radius: 10px;
+  font-size: 0.7em;
+}
 
-	font-size: 1.3em;
-	font-family: 'Hard Rock Cafe';
-	letter-spacing: 3px;
-	height: 30px;
-	font-weight: bold;
-	color: #731a08;
-	background-color: #f9ae39;
-	line-height: 0.5;
-    min-width: 100px;
+form input[type=checkbox]{
+  height: auto;
+  display: inline-block;
+}
+
+#condition{
+  display: inline-block;
+}
+
+input[type=submit]{
+  display: block;
+  margin: auto;
+  color: #8c1d04;
+  font-family: 'Hard Rock Cafe';
+  font-size: 1em;
+  height: 2em;
+  width: 50%;
+  background-color: #f9ae39;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 1024px) {
+  .black{
+    margin-left: 25em;
+  }
 }

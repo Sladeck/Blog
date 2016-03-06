@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="iso-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <title>Acceuil</title>
   <script src="js/jquery-2.2.0.min.js"></script>
   <script src="js/jquery.cssemoticons.min.js" type="text/javascript"></script>

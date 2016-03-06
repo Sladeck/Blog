@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="iso-8859-1">
+    <meta charset="utf-8">
     <title>Connexion</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/account.css" media="screen" charset="utf-8">
@@ -12,12 +12,6 @@
 
 
 <form class="my-form">
-    <input type="text" name="name" placeholder="Nom" ><br><br>
-    <input type="text" name="firstname" placeholder="Prénom"><br><br>
-    <input type="text" name="pseudo" placeholder="Pseudo"><br><br>
-    <input type="text" name="mdp" placeholder="Mot De Passe"><br><br>
-    <input type="text" name="email" placeholder="Email"><br><br>
-
     <?php foreach($account as $profil):?>
     <table class="tab">
         <tr>
@@ -36,6 +30,11 @@
         </tr>
 
         <tr>
+            <td><label for="pseudo">Mot De Passe: </label></td>
+            <td><input type="password" name="password_user" id="mdp" value=""></td>
+        </tr>
+
+        <tr>
             <td><label for="email">Email: </label></td>
             <td><input type="text" name="email" id="email" value="<?php echo $profil['mail_user']?>"></td>
         </tr>
@@ -46,6 +45,32 @@
 
 </form>
 
+<div class="success">
+
+</div>
+
+<script type="text/javascript">
+$(document).on('submit','.my-form', function(e){
+
+  $.post("/user/edit",$(this).serialize(),function(data){
+    if(typeof(data.error) != "undefined"){
+      alert(data.error);
+    }else{
+      var newli = 'Votre profil à bien été modifié.';
+      $('.success').append(newli).css({marginTop:'20px',marginLeft:'60px'});
+
+      function back(){
+        history.back();
+      }
+      window.setTimeout(back,3000);
+
+    }
+  },'json');
+
+  return false;
+});
+
+</script>
 
 </body>
 </html>

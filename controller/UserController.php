@@ -3,7 +3,8 @@
 class UserController extends AbstractController{
 
     public function accountAction(){
-        include('../view/Account.php');
+      $account = UserModel::getList($this->pdo);
+      include('../view/Account.php');
     }
 
     public function inscriptionAction(){
@@ -69,22 +70,12 @@ class UserController extends AbstractController{
 
   }
 
- // public function showAction($pdo, $_SESSION){
-    //if(!isset($_SESSION))
-      //return json_encode(["error"=>"ID missing"]);
-
-    //$id_user = strip_tags($_SESSION['ID']);
-
-    //$account = UserModel::getList($this->pdo, $id_user);
-
-    //return json_encode(["message"=>"Connecté !"]);
-  //}
-
   public function editAction(){
     if(!isset($_POST['name']) && !isset($_POST['firstname']) && !isset($_POST['pseudo']) && !isset($_POST['mdp']) && !isset($_POST['email']) && !isset($_SESSION['id_user']))
         return json_encode(["error"=>"something is missing"]);
 
-    $id_user = $_POST['id_user'];
+    //$id_user = $_POST['id_user']; // A mettre quand connexion
+    $id_user = 1; // A enlever quand connexion good
 
     $name_user = strip_tags($_POST['name']);
     $name_user = htmlentities($name_user);
@@ -98,7 +89,7 @@ class UserController extends AbstractController{
     $pseudo_user = htmlentities($pseudo_user);
     $pseudo_user = trim($pseudo_user);
 
-    $mdp_user = strip_tags($_POST['mdp']);
+    $mdp_user = strip_tags($_POST['password_user']);
     $mdp_user = htmlentities($mdp_user);
     $mdp_user = trim($mdp_user);
 
@@ -111,7 +102,7 @@ class UserController extends AbstractController{
     return json_encode(["message"=>"Connecté !",
                         "id_user"=>$id_user,
                         "name_user" => $name_user,
-                        "password_user" => $password_user
+                        "password_user" => $mdp_user
                         ]);
   }
 

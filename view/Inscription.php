@@ -2,10 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/inscription.css" media="screen" title="no title" charset="utf-8">
     <script src="../js/jquery-2.2.0.min.js"></script>
     <title>Inscription</title>
   </head>
   <body>
+
+    <?php include('menu.html');?>
+  <div class="black">
     <form class="inscr">
       <table>
         <tr>
@@ -49,10 +53,11 @@
           </td>
         </tr>
       </table>
-      <input type="checkbox" name="condition" required><label for="condition">J'accepte les termes et conditions d'utilisations</label><br>
+      <input type="checkbox" name="condition" required id="condition"><label for="condition">J'accepte les termes et conditions d'utilisations</label><br>
       <input type="submit" name="valid" value="Je m'inscris !">
     </form>
     <div class="success"></div>
+  </div>
 <script>
 
 $(document).on('submit','.inscr', function(e){
@@ -61,7 +66,7 @@ $(document).on('submit','.inscr', function(e){
     if(typeof(data.error) != "undefined"){
       alert(data.error);
     }else{
-      var newli = 'Votre article à bien été créé, vous allez être redirigé vers l\'accueil.';
+      var newli = 'Votre compte a bien été créé, vous allez être redirigé vers l\'accueil';
       $('.success').append(newli);
 
       function back(){

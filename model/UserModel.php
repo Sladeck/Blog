@@ -22,7 +22,8 @@ class UserModel{
     return $reussi;
   }
 
-  public static function getList($pdo, $id_user){
+  public static function getList($pdo){ //rajouter $id_user quand connexion
+    $id_user = 1; //A enlever quand la connexion sera bonne
     $res = $pdo->prepare("SELECT * FROM users WHERE id_user = :id_user");
     $res->bindParam('id_user', $id_user);
     $reussi = $res->execute();
