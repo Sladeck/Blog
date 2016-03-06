@@ -1,7 +1,7 @@
 <?php
 
 class ArticlesController extends AbstractController{
-    
+
     public function redirectionAction(){
         include('../view/createArticle.php');
     }
@@ -10,14 +10,18 @@ class ArticlesController extends AbstractController{
     if(!isset($_POST['titre_article']))
       return json_encode(["error"=>"titre_article missing"]);
 
+    $id_user = $_SESSION['id_user'];
+    $id_user = 1; //Ligne à supprimer quand la connexion fonctionnera !
+
     $titre_article = strip_tags($_POST['titre_article']);
-    $content_article = strip_tags($_POST['content_article']);
-    $content_article = htmlentities($content_article);
-    $content_article = trim($content_article);
     $titre_article = htmlentities($titre_article);
     $titre_article = trim($titre_article);
 
-    $id_article = ArticlesModel::create($this->pdo, $titre_article, $content_article);
+    $content_article = strip_tags($_POST['content_article']);
+    $content_article = htmlentities($content_article);
+    $content_article = trim($content_article);
+
+    $id_article = ArticlesModel::create($this->pdo, $titre_article, $content_article, $id_user);
 
     return json_encode(["message"=>"Créé !",
                         "id_article"=>$id_article,

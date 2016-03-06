@@ -7,10 +7,7 @@ class UserModel{
     $q->bindParam('name_user', $name_user);
     $q->bindParam('password_user', $password_user);
     $q->execute();
-    $user = [];
-    foreach ($q as $row) {
-      $user[] = $row;
-    }
+    $user = $q->fetchAll(PDO::FETCH_BOTH);
     return $user;
   }
 

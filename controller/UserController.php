@@ -1,12 +1,12 @@
 <?php
 
 class UserController extends AbstractController{
-    
+
     public function accountAction(){
         include('../view/Account.php');
     }
 
-  public function connectionAction($pdo, $name_user, $password_user){
+  public function connectionAction(){
     if(!isset($_POST['name_user']) && !isset($_POST['password_user']))
       return json_encode(["error"=>"name_user or password_user missing"]);
 
@@ -19,11 +19,12 @@ class UserController extends AbstractController{
     $name_user = trim($name_user);
 
     $user = UserModel::connexion($this->pdo, $name_user, $password_user);
-
+    var_dump($user);
     return json_encode(["message"=>"Connecté !",
-                        "id_user"=>$id_user,
                         "name_user" => $name_user,
-                        "password_user" => $password_user
+                        "password_user" => $password_user,
+                        "droit_user" => $droit_user,
+                        'id_user'=> $id_user
                         ]);
   }
 

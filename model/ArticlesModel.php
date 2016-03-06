@@ -18,11 +18,11 @@ class ArticlesModel{
     return $reussi;
   }
 
-  public static function create($pdo, $titre_article, $content_article){
-    $q = $pdo->prepare('INSERT INTO articles
-                          SET titre_article = :titre_article, contenu_article = :content_article');
-    $q->bindParam('titre_article',$titre_article);
-    $q->bindParam('content_article',$content_article);
+  public static function create($pdo, $titre_article, $content_article, $id_user){
+    $q = $pdo->prepare('INSERT INTO articles SET titre_article = :titre_article, contenu_article = :content_article, id_user = :id_user');
+    $q->bindParam('titre_article', $titre_article);
+    $q->bindParam('content_article', $content_article);
+    $q->bindParam('id_user', $id_user);
     $q->execute();
     $id_article = $pdo->lastInsertId();
     return $id_article;

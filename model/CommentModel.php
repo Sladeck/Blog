@@ -3,7 +3,7 @@
 class CommentModel{
 
   public static function getList($pdo){
-    $res = $pdo->query("SELECT * FROM commentaires");
+    $res = $pdo->query("SELECT * FROM commentaires INNER JOIN `users` WHERE `commentaires`.`id_user` = `users`.`id_user`");
     $commentaires = [];
     foreach ($res as $row) {
       $commentaires[] = $row;

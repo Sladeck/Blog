@@ -1,60 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="iso-8859-1">
   <title>Acceuil</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <link rel="stylesheet" href="/css/main.css" media="screen" charset="utf-8">
+  <script src="js/jquery-2.2.0.min.js"></script>
+  <script src="js/jquery.cssemoticons.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="css/main.css" media="screen">
+  <link href="css/jquery.cssemoticons.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
 
       <?php include('menu.html');?>
-
-  <div class="leftSide Sides">
+<div class="container">
+  <div class="leftSide">
 
     <ul class="articles_list">
     <?php foreach($articles as $titre):?>
       <li class="articles" id="article-<?php echo $titre['id_article']?>">
-      <?php echo $titre["titre_article"];?>
-      <a class="articles-delete" href="#" data-articleid="<?php echo $titre['id_article']?>">X</a>
+      <?php echo "<span>".$titre["titre_article"]."</span>";?>
+      <a class="articles-delete" href="#" data-articleid="<?php echo $titre['id_article']?>">X</a><br><br>
+      <hr class="hrTitle">
+      Description : <br><br>
       <div class="contents_articles"><?php echo $titre["contenu_article"];?></div><br>
+      <hr class="hrComm">
       Commentaires : <br><br>
       <?php
       foreach ($commentaires as $contain):
         if($contain['id_article'] == $titre['id_article']){
-        echo $contain['id_user']; ?>
+        echo $contain['pseudo_user']; ?>
         <div class="contenu_comm">
           <?php echo $contain['contenu_comm']; ?>
         </div><br>
         <?php } endforeach; ?>
-      </li><br><br>
-
-      <?php  endforeach; ?>
+      </li>
+    <?php  endforeach; ?>
+  </ul>
   </div>
-  <div class="rightSide Sides">
+  <div class="rightSide">
     <?php
 
-    if(isset($user)){
-      foreach($user as $infos):
-        $_SESSION['pseudo'] = $infos['pseudo_user'];
-        $_SESSION['droit'] = $infos['droit'];
-        $_SESSION['ID'] = $infos['id_user'];
-
-      endforeach;
+    if(isset($_SESSION['ID'])){
+      echo ("Bienvenue ".$_SESSION['pseudo']." !");
     }else{
       ?>
       <form class="connexion">
-        Nom : <input type="text" name="pseudo_user"><br><br>
-        Mot de Passe : <input type="password" name="password_user"><br><br>
+        Connectez-vous !<br><br>
+        <table class="connec">
+          <tr>
+            <td>
+              <label for="pseudo_user">Pseudo :</label>
+            </td>
+            <td>
+              <input type="text" name="name_user" placeholder="Jimmy" id="pseudo_user">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="password_user">Mot de Passe :</label>
+            </td>
+            <td>
+              <input type="password" name="password_user" placeholder="Hendrix" id="password_user">
+            </td>
+          </tr>
+        </table>
         <input type="submit" value="Login">
       </form>
       <?php
     }
      ?>
   </div>
+</div>
 
 <script>
+
 $(document).on('click','.articles-delete', function(e){
 
   var id_article = $(this).data('articleid');
@@ -64,7 +83,13 @@ $(document).on('click','.articles-delete', function(e){
       alert(data.error);
     }else{
       var deleted_articles = data.id_article;
-      $('#article-'+deleted_articles).remove();
+      $('#article-'+deleted_articles).css('animation', 'fadeOutLeft 1.3s ease alternate');
+
+      function supp(){
+        $('#article-'+deleted_articles).remove();
+      }
+
+      setTimeout(supp,1300);
     }
   },'json');
 
@@ -77,12 +102,19 @@ $(document).on('submit','.connexion', function(e){
   $.post("/user/connection",$(this).serialize(),function(data){
     if(typeof(data.error) != "undefined"){
       alert(data.error);
+    }else{
+      alert(data.message);
+      $_SESSION['pseudo'] = data.name_user;
+      $_SESSION['droit'] = data.droit_user;
+      $_SESSION['ID'] = data.id_user;
     }
 
   },'json');
 
     return false;
 });
+
+$('.contenu_comm').emoticonize();
 
 </script>
 

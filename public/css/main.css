@@ -43,32 +43,170 @@ table {
 }
 
 
+/********************************** FADE IN UP *****************************/
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px); }
+  60% {
+    opacity: 1; }
+  100% {
+    -webkit-transform: translateY(0); } }
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px); }
+  60% {
+    opacity: 1; }
+  100% {
+    transform: translateY(0); } }
+.fadeInUp {
+  animation: fadeInUp 1s ease alternate; }
+
+	/******************************* FADE OUT LEFT ************************************/
+	@-webkit-keyframes fadeOutLeft {
+	  0% {
+	    opacity: 1; }
+	  to {
+	    opacity: 0;
+	    -webkit-transform: translateX(-50px); } }
+	@keyframes fadeOutLeft {
+	  0% {
+	    opacity: 1; }
+	  to {
+	    opacity: 0;
+	    transform: translateX(-50px); } }
+	.fadeOutLeft {
+	  animation: fadeOutLeft 1s ease alternate; }
+
+
+/***************************************************************************/
+
 html{
   background-color: grey;
 }
 
 body{
-  width: 85%;
+  width: 100%;
   margin: auto;
-  margin-top: 1%;
   background-color: #8c1d04;
+	height: 100%;
+	color: white;
 }
 
-.Sides{
-  margin: 0.5%;
+@font-face {
+  font-family: 'Hard Rock Cafe';
+src: url('/font/hardcafe.ttf');
+}
+
+.container{
+	padding-bottom: 1%;
+	margin-left: 4%;
 }
 
 .leftSide{
   margin-top: 100px;
   width: 65%;
   display: inline-block;
-  background-color: green;
+  background-color: #1f1f1c;
+	border-radius: 50px 0px;
+}
+
+.leftSide > *{
+	text-align: center;
+	margin: auto;
+	margin-top: 3%;
+	max-width: border-box;
 }
 
 .rightSide{
-  width: 32%;
+  width: 28%;
   display: inline-block;
-  background-color: yellow;
-  position: relative;
-  margin-top: 50%;
+  background-color: #1f1f1c;
+  position: fixed;
+	margin-top: 100px;
+	height: 250px;
+	margin-left: 1%;
+	border-radius: 0px 50px;
+}
+
+.rightSide > *{
+	text-align: center;
+	margin: auto;
+	margin-top: 10%;
+	max-width: border-box;
+}
+
+.connec{
+	margin: auto;
+	margin-bottom: 3%;
+}
+
+.connec td{
+	padding-bottom: 5%;
+}
+
+.connexion input{
+	width: 90%;
+	height: 1.5em;
+	max-width: border-box;
+	border-radius: 5px;
+}
+
+.connexion input[type=submit]{
+	width: 22%;
+	font-size: 1.3em;
+	font-family: 'Hard Rock Cafe';
+	letter-spacing: 3px;
+	height: 30px;
+	font-weight: bold;
+	color: #731a08;
+	background-color: #f9ae39;
+	line-height: 0.5;
+	outline: none;
+}
+
+.articles_list{
+	animation: fadeInUp 1.3s ease alternate;
+}
+
+.articles{
+	margin-bottom: 5%;
+}
+
+.articles span{
+	font-size: 1.5em;
+	font-family: 'Hard Rock Cafe';
+	letter-spacing: 3px;
+}
+
+.articles-delete{
+	color: #8c1d04;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.hrTitle{
+	width: 40%;
+	color: white;
+}
+
+.contents_articles{
+	width: 50%;
+	text-align: justify;
+	margin: auto;
+}
+
+.hrComm{
+	width: 15%;
+	color: white;
+}
+
+.contenu_comm{
+	background-color: rgba(140, 29, 4, 0.2);;
+	width: 40%;
+	margin: auto;
+	padding: 15px;
+	text-align: justify;
+	line-height: 1;
 }
