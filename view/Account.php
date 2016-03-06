@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="iso-8859-1">
-  <title>Connexion</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <meta charset="iso-8859-1">
+    <title>Connexion</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/account.css" media="screen" charset="utf-8">
 </head>
 <body>
-
-
+    
+    <?php include('menu.html');?>
+    
+<div class="profil">        
 <form class="my-form">
-    <input type="text" name="name" placeholder="Nom"><br><br>
-    <input type="text" name="firstname" placeholder="Prénom"><br><br>
-    <input type="text" name="pseudo" placeholder="Pseudo"><br><br>
-    <input type="text" name="mdp" placeholder="Mot De Passe"><br><br>
-    <input type="text" name="email" placeholder="Email"><br><br>
-
+<table class="tab">
+    <tr>
+       <td><label for="name">Nom: </label></td>
+       <td><input type="text" name="name" id="name" value=""></td>
+    </tr>
+    
+    <tr>
+       <td><label for="firstname">Prénom: </label></td>
+       <td><input type="text" name="firstname" id="firstname" value=""></td>
+    </tr>
+    
+    <tr>
+       <td><label for="pseudo">Pseudo: </label></td>
+       <td><input type="text" name="pseudo" id="pseudo" value=""></td>
+    </tr>
+    
+    <tr>
+       <td><label for="email">Email: </label></td>
+       <td><input type="text" name="email" id="email" value=""></td>
+    </tr>
+    
+</table>
+    
     <input type="submit" value="Modifier">
-    </form>
+    
+</form>
+</div>
 
 </body>
 </html>

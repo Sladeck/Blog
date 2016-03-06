@@ -40,12 +40,12 @@ src: url('/font/hardcafe.ttf');
   display: inline-block;
   padding: 20px;
   float: left;
-  color: white;
+  color: gainsboro;
   font-size: 1.3em;
   background-color: black;
 }
 
 #menu-top ul li:hover{
-  background-color: white;
-  color: black;
+ background: linear-gradient( to top, #222, #000);
+  color: white;
 }

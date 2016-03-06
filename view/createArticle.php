@@ -4,8 +4,11 @@
   <meta charset="utf-8">
   <title>bonjour</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/main.css" media="screen" charset="utf-8">
 </head>
 <body>
+    
+    <?php include('menu.html');?>
 
   <form class="articles-add">
     <label for="titre_article">Nom : </label><input type="text" name="titre_article" id="titre_article"><br><br>

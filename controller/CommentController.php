@@ -20,12 +20,9 @@ class CommentController extends AbstractController{
                         "pseudo_user" => $pseudo_user,
                         "contenu_comm"=>$contenu_comm
                         ]);
-
-
-
-
   }
-  public function createAction(){
+  
+    public function createAction(){
       if(!isset($_POST['contenu_comm']))
       return json_encode(["error"=>"contenu_comm missing"]);
 
